@@ -31,4 +31,9 @@ Route::middleware('api_token_check')->group(function () {
         'App\Http\Controllers\API\AuthorController'
     );
 
+    Route::resource(
+        'genres',
+        'App\Http\Controllers\API\GenreController'
+    );
+
 });
