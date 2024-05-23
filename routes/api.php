@@ -44,6 +44,8 @@ Route::middleware('api_token_check')->group(function () {
     Route::resource(
         'users',
         'App\Http\Controllers\API\UserController'
-    );
+    )->except([
+        'update', 'destroy'
+    ]);
 
 });
