@@ -26,4 +26,9 @@ Route::middleware('api_token_check')->group(function () {
 
     Route::get('/enums', ['App\Http\Controllers\API\EnumController', 'index']);
 
+    Route::resource(
+        'authors',
+        'App\Http\Controllers\API\AuthorController'
+    );
+
 });
