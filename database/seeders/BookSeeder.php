@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\RentStatusEnum;
 use App\Models\Author;
 use App\Models\Book;
 use App\Models\Genre;
@@ -27,7 +28,7 @@ class BookSeeder extends Seeder
 
         $userId = 1;
         Book::find(1)->users()->attach($userId, [
-            'status' => 'rented'
+            'status' => RentStatusEnum::RENTED,
         ]);
     }
 }
