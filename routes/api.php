@@ -41,4 +41,9 @@ Route::middleware('api_token_check')->group(function () {
         'App\Http\Controllers\API\BookController'
     );
 
+    Route::resource(
+        'users',
+        'App\Http\Controllers\API\UserController'
+    );
+
 });
