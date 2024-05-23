@@ -24,5 +24,10 @@ class BookSeeder extends Seeder
                 ->toArray()
             )
         ));
+
+        $userId = 1;
+        Book::find(1)->users()->attach($userId, [
+            'status' => 'rented'
+        ]);
     }
 }
