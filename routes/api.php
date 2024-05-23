@@ -15,5 +15,37 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+    return response()->json([
+        'status' => true,
+        'message' => 'Get user data',
+        'data' => $request->user()
+    ]);
+});
+
+Route::middleware('api_token_check')->group(function () {
+
+    Route::get('/enums', ['App\Http\Controllers\API\EnumController', 'index']);
+
+    Route::resource(
+        'authors',
+        'App\Http\Controllers\API\AuthorController'
+    );
+
+    Route::resource(
+        'genres',
+        'App\Http\Controllers\API\GenreController'
+    );
+
+    Route::resource(
+        'books',
+        'App\Http\Controllers\API\BookController'
+    );
+
+    Route::resource(
+        'users',
+        'App\Http\Controllers\API\UserController'
+    )->except([
+        'update', 'destroy'
+    ]);
+
 });

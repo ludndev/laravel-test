@@ -1,4 +1,5 @@
 {
+    "name": "ludndev-cay-laravel-test",
     "private": true,
     "scripts": {
         "dev": "vite",
