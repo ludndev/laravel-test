@@ -21,3 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
         'data' => $request->user()
     ]);
 });
+
+Route::middleware('api_token_check')->group(function () {
+
+    Route::get('/enums', ['App\Http\Controllers\API\EnumController', 'index']);
+
+});
